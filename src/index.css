@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-bg: var(--bg);
+  --color-brand-surface: var(--surface);
+  --color-brand-surface-high: var(--surface-high);
+  --color-brand-accent: var(--accent);
+  --color-brand-accent-dim: var(--accent-dim);
+  --color-brand-text: var(--text);
+  --color-brand-text-dim: var(--text-dim);
+  --color-brand-border: var(--border);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden transition-colors duration-500;
+  }
+
+  /* Theme 1: Tactical (Dark Emerald) */
+  :root, [data-theme='tactical'] {
+    --bg: #051426;
+    --surface: #122033;
+    --surface-high: #1c2b3e;
+    --accent: #4edea3;
+    --accent-dim: #00a572;
+    --text: #d5e3fd;
+    --text-dim: #c6c6cd;
+    --border: #45464d33;
+  }
+
+  /* Theme 2: Swiss (Minimalist Light) */
+  [data-theme='swiss'] {
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface-high: #f1f3f5;
+    --accent: #000000;
+    --accent-dim: #495057;
+    --text: #1a1a1a;
+    --text-dim: #868e96;
+    --border: #0000001a;
+  }
+
+  /* Theme 3: Prestige (Luxury Night) */
+  [data-theme='prestige'] {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-high: #1f1f1f;
+    --accent: #d4af37; /* Gold */
+    --accent-dim: #b8860b;
+    --text: #ffffff;
+    --text-dim: #a0a0a0;
+    --border: #d4af3722;
+  }
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+/* Custom scrollbar for data-heavy areas */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2b3e;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4edea333;
+}
